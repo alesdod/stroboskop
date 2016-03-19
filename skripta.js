@@ -1,6 +1,11 @@
 window.addEventListener('load', function() {
 	//stran nalozena
 	
+	
+	function Odstrani_barve(){
+		document.getElementById('barve').innerHTML = "";
+	}
+	
 	//Dodaj novo barvo
 	var dodajBarvo = function(event) {
 		var input = document.createElement('button');
