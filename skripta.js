@@ -5,7 +5,10 @@ window.addEventListener('load', function() {
 	function Odstrani_barve(){
 		document.getElementById('barve').innerHTML = "";
 	}
-	
+		document.querySelector("#OdstraniBarve") 
+		.addEventListener('click', Odstrani_barve);
+
+		
 	//Dodaj novo barvo
 	var dodajBarvo = function(event) {
 		var input = document.createElement('button');
@@ -27,10 +30,12 @@ window.addEventListener('load', function() {
 	
 	var spremeniBarvo = function(id) {
 		document.getElementById("stroboskop").style.backgroundColor = "#"+vrednosti[id];
-
+	//	alert(vrednosti[id]);
 		if (ustavi) {
 			ustavi = false;
+			
 		} else {
+			
 			novId = (id+1) % vrednosti.length;
 			timeout = Math.floor((Math.random() * (maxCas-minCas)) + minCas);
 			setTimeout(function() {spremeniBarvo(novId)} , timeout);
@@ -55,8 +60,12 @@ window.addEventListener('load', function() {
 			vrednosti.push(barva.innerHTML);
 		}
 		
-		minCas = 1000;
-		maxCas = 1000;
+		 minCas = document.querySelector("#min").value;
+		 maxCas = document.querySelector("#max").value;
+	     ustavi=false;
+	
+		//minCas = 1000;
+		//maxCas = 1000;
 		spremeniBarvo(0);
 		
 		var start = document.querySelector("#start");
